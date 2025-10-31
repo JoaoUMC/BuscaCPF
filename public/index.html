@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CRUD CPF — JSON Server + Express</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <h1>CRUD com JSON Server + Express</h1>
+    <nav>
+      <button data-tab="get">GET (Listar/Buscar CPF)</button>
+      <button data-tab="post">POST (Criar)</button>
+      <button data-tab="put">PUT (Editar)</button>
+      <button data-tab="delete">DELETE (Excluir)</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- GET -->
+    <section id="tab-get" class="tab active">
+      <h2>GET — Listar & Buscar por CPF</h2>
+      <form id="formBusca" class="row">
+        <input id="cpfBusca" placeholder="CPF (somente números)" minlength="11" maxlength="11" />
+        <button type="submit">Buscar</button>
+        <button type="button" id="btnListarTodos">Listar todos</button>
+      </form>
+
+      <div class="card">
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nome</th><th>Sobrenome</th><th>Email</th><th>Idade</th><th>Telefone</th>
+              <th>Rua</th><th>Bairro</th><th>Cidade</th><th>Estado</th><th>RG</th><th>CPF</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- POST -->
+    <section id="tab-post" class="tab">
+      <h2>POST — Criar Registro</h2>
+      <form id="formPost" class="card grid">
+        <label>Nome <input name="nome" required></label>
+        <label>Sobrenome <input name="sobrenome" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Idade <input name="idade" type="number" min="0" required></label>
+        <label>Telefone <input name="telefone" required></label>
+        <label>Rua <input name="rua" required></label>
+        <label>Bairro <input name="bairro" required></label>
+        <label>Cidade <input name="cidade" required></label>
+        <label>Estado <input name="estado" maxlength="2" required></label>
+        <label>RG <input name="rg" required></label>
+        <label>CPF (somente números) <input name="cpf" minlength="11" maxlength="11"></label>
+        <button type="submit" class="full">Salvar</button>
+        <p id="msgPost" class="msg"></p>
+      </form>
+    </section>
+
+    <!-- PUT -->
+    <section id="tab-put" class="tab">
+      <h2>PUT — Editar Registro</h2>
+
+      <form id="formBuscaPut" class="row">
+        <input id="idBuscaPut" type="number" min="1" placeholder="ID">
+        <span>ou</span>
+        <input id="cpfBuscaPut" minlength="11" maxlength="11" placeholder="CPF (somente números)">
+        <button type="submit">Carregar</button>
+      </form>
+      <p id="msgBuscaPut" class="msg"></p>
+
+      <form id="formPut" class="card grid" hidden>
+        <input type="hidden" name="id" />
+        <label>Nome <input name="nome" required></label>
+        <label>Sobrenome <input name="sobrenome" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Idade <input name="idade" type="number" min="0" required></label>
+        <label>Telefone <input name="telefone" required></label>
+        <label>Rua <input name="rua" required></label>
+        <label>Bairro <input name="bairro" required></label>
+        <label>Cidade <input name="cidade" required></label>
+        <label>Estado <input name="estado" maxlength="2" required></label>
+        <label>RG <input name="rg" required></label>
+        <label>CPF (somente números) <input name="cpf" minlength="11" maxlength="11"></label>
+        <button type="submit" class="full">Salvar alterações</button>
+        <p id="msgPut" class="msg"></p>
+      </form>
+    </section>
+
+    <!-- DELETE -->
+    <section id="tab-delete" class="tab">
+      <h2>DELETE — Excluir Registro</h2>
+      <form id="formDel" class="row">
+        <input id="idDel" type="number" min="1" placeholder="ID">
+        <span>ou</span>
+        <input id="cpfDel" minlength="11" maxlength="11" placeholder="CPF (somente números)">
+        <button type="submit">Excluir</button>
+      </form>
+      <p id="msgDel" class="msg"></p>
+    </section>
+  </main>
+
+  <footer>
+    <small>API: <code>/api/pessoas</code></small>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Carlos",
+      "sobrenome": "Silva",
+      "email": "carlos.silva@example.com",
+      "idade": 28,
+      "telefone": "(11) 99999-0001",
+      "rua": "Rua A, 100",
+      "bairro": "Centro",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "rg": "12.345.678-9",
+      "cpf": "11122233344"
+    },
+    {
+      "id": 2,
+      "nome": "Marianna",
+      "sobrenome": "Souza",
+      "email": "mari.souza@example.com",
+      "idade": 22,
+      "telefone": "(21) 98888-0002",
+      "rua": "Av. B, 200",
+      "bairro": "Copacabana",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "rg": "98.765.432-1",
+      "cpf": "55566677788"
+    }
+  ]
+}
