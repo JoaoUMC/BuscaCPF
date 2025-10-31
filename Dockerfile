@@ -1,17 +1,20 @@
-FROM node:18
+# Dockerfile
+FROM node:18-alpine
 
-# Diretório de trabalho
-WORKDIR /main
+# diretório de trabalho dentro da imagem
+WORKDIR /app
 
-# Copia só os manifests da subpasta para aproveitar cache
-COPY main/package*.json ./
+# copiar apenas manifestos primeiro (cache de dependências)
+COPY package*.json ./
 
-# Instala as dependências
-RUN npm install
+# instale dependências (produção)
+RUN npm ci --omit=dev
 
-# Copia o restante do código da subpasta "main" para o /main do container
-COPY main/. .
+# agora copie o restante do código
+COPY . .
 
+ENV NODE_ENV=production
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# inicializa a app
+CMD ["node", "server.js"]
